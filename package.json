@@ -1,0 +1,15 @@
+{
+  "name": "bulk-vid",
+  "version": "1.0.0",
+  "main": "Youtube_Downloader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "yt_most_replayed": "^0.0.1"
+  }
+}
