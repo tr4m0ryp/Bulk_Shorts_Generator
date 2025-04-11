@@ -85,21 +85,17 @@ async function combineWithRandomClips(clipsArray) {
     const maxStart = secondVideoDuration - clipDuration;
     const randomStart = Math.random() * maxStart;
 
-            // Knip het fragment uit video2
     const randomClipPath = path.join(__dirname, `random_clip_${i}_${Date.now()}.mp4`);
     await cutClip(secondVideoPath, randomClipPath, randomStart, clipDuration);
 
-            // Combineer de originele clip met het random fragment
         const combinedOutput = path.join(__dirname, `combined_${i}_${Date.now()}.mp4`);
     await combineTwoClips(clipPath, randomClipPath, combinedOutput);
 
-            // Verwijder de tijdelijke random clip
     fs.unlink(randomClipPath, (err) => {
         if (err) console.error(`Fout bij verwijderen van ${randomClipPath}:`, err);
         else console.log(`Tijdelijk bestand ${randomClipPath} verwijderd.`);
         });
 
-            // Verwijder de originele clip (als deze niet langer nodig is)
     fs.unlink(clipPath, (err) => {
         if (err) console.error(`Fout bij verwijderen van ${clipPath}:`, err);
         else console.log(`Originele clip ${clipPath} verwijderd.`);
@@ -116,12 +112,9 @@ async function main(url_short) {
         const result = await main_vidgen(url_short); 
         console.log('Gekregen van main_vidgen:', result);
 
-        // result.clips is een array met paden naar de clips die we gaan verwerken
         const combinedClips = await combineWithRandomClips(result.clips);
         console.log('Alle gecombineerde clips:', combinedClips);
 
-        // Optioneel: als je het oorspronkelijke gedownloade bestand (result.filePath) ook niet meer nodig hebt,
-        // verwijder dat dan ook:
         fs.unlink(result.filePath, (err) => {
             if (err) console.error(`Fout bij verwijderen van hoofdvideo ${result.filePath}:`, err);
             else console.log(`Hoofdvideo ${result.filePath} verwijderd.`);
