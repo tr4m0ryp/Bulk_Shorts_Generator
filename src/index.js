@@ -23,18 +23,14 @@ async function getMostReplayedParts(videoId, parts = 1) {
   if (!data) {
     const result = await extractYoutubeSvgHeatmap(page, videoId)
     data = result.heatMapData
-    videoLength = result.videoLength
   }
 
   await browser.close()
 
   const replayedParts = await getTopReplayedParts(data, parts)
-  return { replayedParts, videoLength }
+  return { replayedParts }
 }
 
-getMostReplayedParts("t1-QbcQrRus", 9)
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error))
 module.exports = {
   getMostReplayedParts,
 }
