@@ -1,4 +1,4 @@
-# Automated Short Form Content Generation
+# Automated Short Form Content Generation.
 
 ## Extract and Download popular sections of shows uploaded to youtube.
 
