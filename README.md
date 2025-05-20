@@ -25,6 +25,11 @@ Use the following commands to generate subtitles:
 <br>
 
 
+##Upcoming Updates:
+Reduced Latency: Optimizing ffmeg settings for minimize lag.
+AI Integration: Incorporating AI to generate more engaging content.
+API Integration: Enabling seamless scheduling and content distribution across major platforms such as Snapchat Spotlights, YouTube Shorts, Instagram Reels, and others.
+
 
 
 
